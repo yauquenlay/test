@@ -1,0 +1,27 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Mocha Tests</title>
+ 
+</head>
+<script src="TronWeb.js"></script>
+<script src="jquery-1.11.3.js"></script> 
+<body>
+  <div id="mocha"></div>
+
+ 
+		<input type="text" id="CN_NAME" name="CN_NAME" class="CN_NAME">
+		<input type="button" value="转换" id="transfer"/>
+		<div id="relust"></div>
+</body>
+<script>
+$(document).ready(function(){
+  $("#transfer").click(function(){
+    var a =TronWeb.utils.base58.decode58($('#CN_NAME').val());
+    $("#relust").text("0x"+TronWeb.utils.bytes.byteArray2hexStr(a).substr(0,42));
+  });
+});
+</script>
+</html>
+
+
